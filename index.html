@@ -126,15 +126,37 @@
             <button class="card-action" type="button" data-launch="runner">Oyna</button>
           </article>
 
-          <article class="game-card is-slot" data-game="grid">
+          <article class="game-card is-ready" data-game="xox">
             <div class="game-visual grid-visual" aria-hidden="true">
               <span></span>
             </div>
             <div class="game-copy">
-              <h3>Grid Sava&#351;&#305;</h3>
-              <p>Slot a&#231;&#305;k</p>
+              <h3>XOX</h3>
+              <p>Haz&#305;r</p>
             </div>
-            <button class="card-action" type="button" data-launch="slot">Se&#231;</button>
+            <button class="card-action" type="button" data-launch="xox">Oyna</button>
+          </article>
+
+          <article class="game-card is-ready" data-game="memory">
+            <div class="game-visual memory-visual" aria-hidden="true">
+              <span></span>
+            </div>
+            <div class="game-copy">
+              <h3>Haf&#305;za Kartlar&#305;</h3>
+              <p>Haz&#305;r</p>
+            </div>
+            <button class="card-action" type="button" data-launch="memory">Oyna</button>
+          </article>
+
+          <article class="game-card is-ready" data-game="snake">
+            <div class="game-visual snake-visual" aria-hidden="true">
+              <span></span>
+            </div>
+            <div class="game-copy">
+              <h3>Y&#305;lan Oyunu</h3>
+              <p>Haz&#305;r</p>
+            </div>
+            <button class="card-action" type="button" data-launch="snake">Oyna</button>
           </article>
         </div>
 
@@ -179,6 +201,15 @@
           <div>
             <span id="metricLabel">&#304;sabet</span>
             <strong id="accuracyReadout">100%</strong>
+          </div>
+        </div>
+
+        <div id="difficultyPanel" class="difficulty-panel" hidden>
+          <span id="difficultyTitle">Zorluk</span>
+          <div class="difficulty-options" role="group" aria-label="Zorluk seviyesi">
+            <button type="button" data-difficulty="easy">Kolay</button>
+            <button type="button" data-difficulty="medium">Orta</button>
+            <button type="button" data-difficulty="hard">Zor</button>
           </div>
         </div>
 
