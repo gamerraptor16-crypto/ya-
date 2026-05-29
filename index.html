@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sava&#351; Game</title>
+    <meta
+      name="description"
+      content="Sava&#351; Game taray&#305;c&#305; mini oyun merkezi."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <canvas id="backdropCanvas" class="backdrop-canvas" aria-hidden="true"></canvas>
+    <div class="scanline" aria-hidden="true"></div>
+
+    <main class="site-shell">
+      <header class="topbar" aria-label="Sava&#351; Game &#252;st men&#252;">
+        <a class="brand" href="#lobby">
+          <span class="brand-mark" aria-hidden="true">SG</span>
+          <span class="brand-copy">
+            <strong>Sava&#351; Game</strong>
+            <small>Mini oyun merkezi</small>
+          </span>
+        </a>
+
+        <nav class="nav-tabs" aria-label="B&#246;l&#252;mler">
+          <a href="#lobby">Lobi</a>
+          <button
+            id="gameLibraryButton"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="gameLibrary"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 11h4"></path>
+              <path d="M8 9v4"></path>
+              <path d="M15 12h.01"></path>
+              <path d="M18 10h.01"></path>
+              <path d="M17.3 5H6.7a4 4 0 0 0-3.9 3.1l-1 4.7A4.2 4.2 0 0 0 5.9 18h.5a3 3 0 0 0 2.4-1.2l.7-.8h5l.7.8a3 3 0 0 0 2.4 1.2h.5a4.2 4.2 0 0 0 4.1-5.2l-1-4.7A4 4 0 0 0 17.3 5z"></path>
+            </svg>
+            Oyunlar
+          </button>
+        </nav>
+
+        <div class="top-actions">
+          <button id="soundButton" class="icon-button" type="button" aria-label="Sesi kapat" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+              <path d="M16.5 8.5a5 5 0 0 1 0 7"></path>
+              <path d="M19 6a8 8 0 0 1 0 12"></path>
+            </svg>
+          </button>
+          <button id="focusButton" class="icon-button" type="button" aria-label="Tam ekrana ge&#231;" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 9V4h5"></path>
+              <path d="M20 9V4h-5"></path>
+              <path d="M4 15v5h5"></path>
+              <path d="M20 15v5h-5"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <section class="lobby-panel" id="lobby" aria-label="Sava&#351; Game ana lobi">
+        <div class="lobby-copy">
+          <p class="eyebrow">ana lobi</p>
+          <h1>Sava&#351; Game</h1>
+          <p class="status-line">Mini oyun merkezi haz&#305;r. Aim Antreman&#305; ve Neon Ko&#351;u oynanabilir.</p>
+        </div>
+
+        <div class="lobby-actions">
+          <button id="openGamesHeroButton" class="launch-button lobby-launch" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14l11-7-11-7z"></path>
+            </svg>
+            Oyunlar
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="gameLibrary"
+      class="modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="gameLibraryTitle"
+      aria-hidden="true"
+    >
+      <section class="game-library">
+        <header class="library-header">
+          <div>
+            <p class="eyebrow">oyunlar</p>
+            <h2 id="gameLibraryTitle">Oyun Penceresi</h2>
+          </div>
+          <button id="closeLibraryButton" class="icon-button" type="button" aria-label="Oyun penceresini kapat">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </header>
+
+        <div class="game-grid">
+          <article class="game-card is-ready" data-game="reflex">
+            <div class="game-visual target-visual" aria-hidden="true">
+              <span></span>
+            </div>
+            <div class="game-copy">
+              <h3>Aim Antreman&#305;</h3>
+              <p>Haz&#305;r</p>
+            </div>
+            <button class="card-action" type="button" data-launch="reflex">Oyna</button>
+          </article>
+
+          <article class="game-card is-ready" data-game="runner">
+            <div class="game-visual runner-visual" aria-hidden="true">
+              <span></span>
+            </div>
+            <div class="game-copy">
+              <h3>Neon Ko&#351;u</h3>
+              <p>Haz&#305;r</p>
+            </div>
+            <button class="card-action" type="button" data-launch="runner">Oyna</button>
+          </article>
+
+          <article class="game-card is-slot" data-game="grid">
+            <div class="game-visual grid-visual" aria-hidden="true">
+              <span></span>
+            </div>
+            <div class="game-copy">
+              <h3>Grid Sava&#351;&#305;</h3>
+              <p>Slot a&#231;&#305;k</p>
+            </div>
+            <button class="card-action" type="button" data-launch="slot">Se&#231;</button>
+          </article>
+        </div>
+
+        <p id="libraryMessage" class="library-message">Yeni oyunlar i&#231;in pencere haz&#305;r.</p>
+      </section>
+    </div>
+
+    <div
+      id="gamePlayer"
+      class="modal-backdrop player-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="arenaTitle"
+      aria-hidden="true"
+    >
+      <section class="arena-panel player-panel" aria-labelledby="arenaTitle">
+        <div class="panel-header">
+          <div>
+            <p id="modeEyebrow" class="eyebrow">oynanabilir mod</p>
+            <h2 id="arenaTitle">Aim Antreman&#305;</h2>
+          </div>
+          <div class="player-actions">
+            <span id="roundStatus" class="round-status">Haz&#305;r</span>
+            <button id="closePlayerButton" class="icon-button" type="button" aria-label="Oyundan &#231;&#305;k">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="score-strip" aria-label="Tur bilgileri">
+          <div>
+            <span id="scoreLabel">Skor</span>
+            <strong id="scoreReadout">000</strong>
+          </div>
+          <div>
+            <span id="timeLabel">S&#252;re</span>
+            <strong id="timeReadout">45</strong>
+          </div>
+          <div>
+            <span id="metricLabel">&#304;sabet</span>
+            <strong id="accuracyReadout">100%</strong>
+          </div>
+        </div>
+
+        <div id="arenaStage" class="arena-stage" role="application" aria-label="Aim Antreman&#305;">
+          <canvas id="arenaCanvas"></canvas>
+          <div id="stageMessage" class="stage-message">Haz&#305;r</div>
+          <button id="startButton" class="launch-button" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14l11-7-11-7z"></path>
+            </svg>
+            Ba&#351;lat
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
